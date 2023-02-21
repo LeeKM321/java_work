@@ -1,5 +1,7 @@
 package basic;
 
+import java.util.Scanner;
+
 public class ScannerQuiz {
 
 	public static void main(String[] args) {
@@ -15,7 +17,42 @@ public class ScannerQuiz {
 		 출생년도는 입력사항이 아닙니다.)
 		 */
 		
-
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.print("이름을 입력하세요: ");
+		String name = sc.next();
+		
+		System.out.print("나이를 입력하세요: ");
+		int age = sc.nextInt();
+		
+		int birth = 2023 - age;
+		
+		/*
+		System.out.println("-------------------------");
+		System.out.println("이름: " + name);
+		System.out.println("나이: " + age + "세");
+		System.out.println("출생년도: " + birth + "년");
+		System.out.println("-------------------------");
+		*/
+		System.out.println("-------------------------");
+		System.out.printf("이름: %s\n나이: %d세\n출생년도: %d년\n"
+				, name, age, 2023-age);
+		System.out.println("-------------------------");
+		sc.close();
+		
 	}
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
