@@ -18,6 +18,11 @@ public class ArrayInsertQuiz {
 		 3. 입력이 종료되면 사용자가 입력한 음식을
 		 가로로 출력해 주세요. (null은 출력하지 마세요.)
 		 
+		  추가 문제 
+         - 입력을 받았는데 이미 배열에 존재하는 음식이라면
+         '이미 존재하는 음식입니다.' 를 출력하고
+         다시 새로운 음식을 입력받을 수 있도록 코드를 제어해 보세요.
+		 
 		*/
 		
 		String[] foods = new String[50];
@@ -25,7 +30,7 @@ public class ArrayInsertQuiz {
 		
 		System.out.println("먹고싶은 음식을 입력하세요.");
 		System.out.println("'배불러' 를 입력하시면 종료됩니다.");
-		for(int i=0; i<foods.length; i++) {
+		outer: for(int i=0; i<foods.length; i++) {
 			
 			System.out.print("> ");
 			String name = sc.next();
@@ -35,7 +40,20 @@ public class ArrayInsertQuiz {
 				break;
 			}
 			
-			foods[i] = name;
+			int j;
+			for(j=0; j<foods.length; j++) {
+				if(name.equals(foods[j])) {
+					System.out.println("이미 존재하는 음식입니다.");
+					i--;
+					continue outer;
+				}
+			}
+			
+			
+			foods[i] = name;				
+			
+			
+			
 		}
 		
 		System.out.println("-------------------------------");
