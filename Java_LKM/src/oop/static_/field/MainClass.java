@@ -1,7 +1,5 @@
 package oop.static_.field;
 
-import oop.static_.singleton.Singleton;
-
 public class MainClass {
 
 	public static void main(String[] args) {
