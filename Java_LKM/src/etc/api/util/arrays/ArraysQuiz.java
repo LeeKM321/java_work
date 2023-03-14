@@ -1,5 +1,7 @@
 package etc.api.util.arrays;
 
+import java.util.Arrays;
+
 public class ArraysQuiz {
 	
 	public static String solution(String[] participant, String[] completion) {
@@ -11,13 +13,40 @@ public class ArraysQuiz {
 		 완주하지 못한 자는 1명이라고 가정합니다.
 		*/
 		
+		Arrays.sort(participant);
+		Arrays.sort(completion);
+		
+		for(int i=0; i<completion.length; i++) {
+			if(!participant[i].equals(completion[i])) {
+				return participant[i];
+			}
+		}
+		
+		return participant[participant.length-1];
+		
+		
 	}
 
 	public static void main(String[] args) {
 		
 		String[] participant = {"홍길동", "김길동", "김철수", "최철수", "박영희"};
-		String[] completion = {"홍길동", "김길동", "박영희", "김철수"};
+		String[] completion = {"김철수", "김길동", "박영희", "최철수"};
 
+		System.out.println("완주하지 못한자: " + solution(participant, completion));
+		
+		
 	}
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
